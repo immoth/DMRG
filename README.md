@@ -38,5 +38,5 @@ Derivative.py: This takes the derivative of the MPS.  This is called by Optimize
 
 mps.py: This creates an arbitrary MPS and normalizes it.  This is called in DMRG.py to initalize the MPS.
 
-Hamiltonain.py: This describes the Hamiltonian and calulates the energy expectation value.  This is called by Derivative.py to calculate the                  
-                derivative of expectation values.
+Hamiltonain_MPO.py: This describes the Hamiltonian and calulates the energy expectation value.  This is called by Derivative.py to calculate 
+                    the derivative of expectation values.
