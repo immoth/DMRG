@@ -1,5 +1,5 @@
 # DMRG
-A density functional renormalization group solver using matrix product states
+A density functional renormalization group (DMRG) solver using matrix product states (MPS)
 
 ## Running The Program
 0) Insure that all files are downloaded into the same folder
@@ -15,3 +15,28 @@ A density functional renormalization group solver using matrix product states
          their own Hamiltonian h_user and edit line 97 so that it reades "etp+=H(mpsA,h_user,mpsB,k)."  The function h_user(d1,d2,d3,d4) 
          must be function of the physical deminsions of two neighboring sites as follows: for a matrix Hamiltonian d1 is the row of site 1,
          d2 is the row of site 2, d3 is the collumn of site 1, and d4 is the collumn of site 2.  
+    
+4) The program outputs: 
+      a) The normalization of the MPS (if it is not 1.0 then there is a bug)
+      b) The ground state energy after each iteration
+      c) A plot of the ground state energy vs iteration step (if the energy has not converged then DMRG has failed).
+         
+## Comming Soon
+1) I will be making Hamiltonian input more user friendly.  In the future, the user will be able to give the Hamiltonian in terms of creation 
+   and destruction operators.
+2) I am working on a GUI for parameter input
+3) I believe the speed of the program can be improved by optimizing certain functions.  I am working towards full optimization.
+
+## Description of Each File
+DMRG.py: This is the main program file
+
+Cononical_Form.py: This is called by DMRG.py during each iteration to prepare the MPS in the appropriate canonical form
+
+Optimize.py: This is where the real number crunching takes place.  This is called by DMRG.py to optimize the MPS during each iteration
+
+Derivative.py: This takes the derivative of the MPS.  This is called by Optimize.py to find the extreme of the local Shrodinger equation.
+
+mps.py: This creates an arbitrary MPS and normalizes it.  This is called in DMRG.py to initalize the MPS.
+
+Hamiltonain.py: This describes the Hamiltonian and calulates the energy expectation value.  This is called by Derivative.py to calculate the                  
+                derivative of expectation values.
