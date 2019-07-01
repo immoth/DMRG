@@ -1,5 +1,5 @@
 # DMRG
-A density functional renormalization group (DMRG) solver using matrix product states (MPS)
+A density matrix renormalization group (DMRG) solver using matrix product states (MPS)
 
 ## Running The Program
 0) Insure that all files are downloaded into the same folder
